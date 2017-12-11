@@ -31,5 +31,5 @@ class MetricsTaskSet(TaskSet):
 
 class MetricsLocust(HttpLocust):
     task_set = MetricsTaskSet
-    min_wait = 10
-    max_wait = 250
+#    min_wait = 10
+#    max_wait = 250
