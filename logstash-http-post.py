@@ -20,15 +20,14 @@ import uuid
 from datetime import datetime
 from locust import HttpLocust, TaskSet, task
 
-json = os.environ.get("JSON") 
 
 class MetricsTaskSet(TaskSet):
 
     @task
     def post_metrics(self):
         headers = {'content-type': 'application/json'}
-        json = os.environ.get("JSON") 
-        self.client.post("/", data=json, headers, verify=False)
+        payload = os.environ.get("JSON") 
+        self.client.post("/", data=json.dumps(payload), headers, verify=False)
         print(os.environ.get("JSON"))
 
 class MetricsLocust(HttpLocust):
