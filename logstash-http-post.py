@@ -27,7 +27,7 @@ class MetricsTaskSet(TaskSet):
     @task
     def post_metrics(self):
         self.client.post("/", os.environ.get("JSON"), verify=False)
- 
+        sys.stdout.write(os.environ.get("JSON"))
 
 class MetricsLocust(HttpLocust):
     task_set = MetricsTaskSet
