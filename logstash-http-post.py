@@ -26,7 +26,7 @@ class MetricsTaskSet(TaskSet):
 
     @task
     def post_metrics(self):
-        self.client.post("/", os.environ.get("JSON"), verify=False)
+        self.client.post("/", data=os.environ.get("JSON"), verify=False)
         print(os.environ.get("JSON"))
 
 class MetricsLocust(HttpLocust):
